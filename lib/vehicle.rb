@@ -6,6 +6,6 @@ class Vehicle
             hash.each do |key, value|
                 self.send("#{key}=", value)
             end
-            binding.pry
+            
         end
     end
