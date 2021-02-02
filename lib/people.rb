@@ -1,12 +1,11 @@
 class People
-    attr_accessor :name, :birth_year, :eye_color, :height, :mass, :homeworld, :films
+@@all = []
+
+    attr_accessor :name, :birth_year, :eye_color, :height, :homeworld, :films
     def initialize(hash)
-        # binding.pry
-        # hash.each do |key, value|
-        #     self.send("#{key}=", value)
-        # end
+        hash.each do |key, value|
+            self.send("#{key}=", value)
+        end
+        binding.pry
     end
-
-
-
 end

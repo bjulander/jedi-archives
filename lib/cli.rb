@@ -10,25 +10,25 @@ class Cli
         input = " "
         while input != "exit!"
         puts "People"
-        puts "Planet"
+        puts "Planets"
         puts "Species"
-        puts "Starship"
-        puts "Vehicle"
+        puts "Starships"
+        puts "Vehicles"
         input = gets.strip
         case input 
         when "people"
             puts "Please enter a name to begin your search"
             self.search(input)
-        when "planet"
+        when "planets"
             puts "Please enter a planet to begin your search"
             self.search(input)
         when "species"
             puts "Please enter a species to begin your search"
             self.search(input)
-        when "starship"
+        when "starships"
             puts "Please enter a starship to begin your search"
             self.search(input)
-        when "vehicle"
+        when "vehicles"
             puts "Please enter a vehicle to begin your search"
             self.search(input)
         else
