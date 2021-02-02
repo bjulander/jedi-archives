@@ -2,7 +2,7 @@ class Cli
 
     def welcome
         puts "Welcome Master Jedi." 
-        puts "To begin your search, please select from the following:"
+        puts "To begin your search, please enter one of the following:"
         search_criteria
     end
 
@@ -10,39 +10,35 @@ class Cli
         input = " "
         while input != "exit!"
         puts "People"
-        puts "Planets"
+        puts "Planet"
         puts "Species"
-        puts "Starships"
-        puts "Vehicles"
-        input = gets.strip.downcase
+        puts "Starship"
+        puts "Vehicle"
+        input = gets.strip
         case input 
         when "people"
-            self.people_search
-        when "planets" || "planet"
-            self.planets_search
+            puts "Please enter a name to begin your search"
+            self.search(input)
+        when "planet"
+            puts "Please enter a planet to begin your search"
+            self.search(input)
         when "species"
-            self.species_search
-        when "starships"
-            self.starships_search
-        when "vehicles"
-            self.vehicle_search
+            puts "Please enter a species to begin your search"
+            self.search(input)
+        when "starship"
+            puts "Please enter a starship to begin your search"
+            self.search(input)
+        when "vehicle"
+            puts "Please enter a vehicle to begin your search"
+            self.search(input)
         else
-           puts "Invalid option. Please choose again." 
+           puts "INVALID ENTRY. Please enter one of the following:" 
         end
     end
 end
 
-    def people_search
+    def search(category)
         puts "Please enter a name to begin your search"
-        input = " "
-        while input != "exit!"
         input = gets.strip
-        Api.get_info
-        end
+        Api.get_info(input, category)
     end
-
-    
-
-
-
-end
