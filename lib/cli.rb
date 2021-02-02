@@ -38,7 +38,8 @@ class Cli
 end
 
     def search(category)
-        puts "Please enter a name to begin your search"
         input = gets.strip
         Api.get_info(input, category)
     end
+
+end
