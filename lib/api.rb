@@ -6,6 +6,9 @@ class Api
         # binding.pry
         response = HTTParty.get(url)
         if url.include?("people")
+            if response["count"][0]
+                return false
+            end
             people_hash = {name: response["results"][0]["name"], birth_year: response["results"][0]["birth_year"], height: response["results"][0]["height"], homeworld: response["results"][0]["homeworld"], eye_color: response["results"][0]["eye_color"]}
             People.new(people_hash)
         elsif url.include?("planets")
@@ -25,3 +28,5 @@ class Api
         end
     end
 end 
+
+#error response -  response => {"count"=>0, "next"=>nil, "previous"=>nil, "results"=>[]}

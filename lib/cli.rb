@@ -32,7 +32,7 @@ class Cli
             puts "Please enter a vehicle to begin your search"
             self.search(input)
         when "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
            puts "INVALID ENTRY. Please enter one of the following:" 
         end
@@ -42,29 +42,36 @@ end
     def search(category)
         input = gets.strip
         new_instance = Api.get_info(input, category)
-        case category
-        when "people"
-            self.people_options(new_instance)
-        when "planets"
-            self.planet_options(new_instance)
-        when "species"
-            self.species_options(new_instance)
-        when "starships"
-            self.starship_options(new_instance)
-        else "vehicles"
-            self.vehicle_options(new_instance)
+        if new_instance 
+            case category
+            when "people"
+                self.people_options(new_instance)
+            when "planets"
+                self.planet_options(new_instance)
+            when "species"
+                self.species_options(new_instance)
+            when "starships"
+                self.starship_options(new_instance)
+            else "vehicles"
+                self.vehicle_options(new_instance)
+            end
+        else
+            puts " "
+            puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+            puts " "
+            self.search_criteria
         end
     end
 
     def people_options(instance)
-            puts "Please choose from the following options for #{instance.name}:"
-            puts "1. Full Name"
-            puts "2. Birth Year"
-            puts "3. Eye Color"
-            puts "4. Height"
-            puts "5. Homeworld"
-            puts "6. Begin a new search."
-            self.people_selection(instance)
+        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "1 - Full Name"
+        puts "2 - Birth Year"
+        puts "3 - Eye Color"
+        puts "4 - Height"
+        puts "5 - Homeworld"
+        puts "6 - Begin a new search."
+        self.people_selection(instance)
     end
 
     def people_selection(instance)
@@ -92,20 +99,21 @@ end
         elsif input == "6"
             self.search_criteria
         elsif input == "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
+            self.people_options(instance)
         end
     end
     end
 
     def planet_options(instance)
-        puts "Please choose from the following options for #{instance.name}:"
-        puts "1. Planet Name"
-        puts "2. Diameter"
-        puts "3. Terrain"
-        puts "4. Climate"
-        puts "5. Begin a new search."
+        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "1 - Planet Name"
+        puts "2 - Diameter"
+        puts "3 - Terrain"
+        puts "4 - Climate"
+        puts "5 - Begin a new search."
         self.planet_selection(instance)
     end
 
@@ -132,21 +140,22 @@ end
         elsif input == "5"
             self.search_criteria
         elsif input == "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
+            self.planet_options(instance)
         end
     end
     end
 
     def species_options(instance)
-        puts "Please choose from the following options for #{instance.name}:"
-            puts "1. Name"
-            puts "2. Classification"
-            puts "3. Average Height"
-            puts "4. Average Lifespan"
-            puts "5. Language"
-            puts "6. Begin a new search."
+        puts "Please enter a number from the following options for #{instance.name}:"
+            puts "1 - Name"
+            puts "2 - Classification"
+            puts "3 - Average Height"
+            puts "4 - Average Lifespan"
+            puts "5 - Language"
+            puts "6 - Begin a new search."
             self.species_selection(instance)
     end
 
@@ -177,19 +186,20 @@ end
         elsif input == "6"
             self.search_criteria
         elsif input == "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
+            self.species_options(instance)
         end
     end
     end
 
     def vehicle_options(instance)
-        puts "Please choose from the following options for #{instance.name}:"
-            puts "1. Name"
-            puts "2. Model"
-            puts "3. Top Speed"
-            puts "4. Begin a new search."
+        puts "Please enter a number from the following options for #{instance.name}:"
+            puts "1 - Name"
+            puts "2 - Model"
+            puts "3 - Top Speed"
+            puts "4 - Begin a new search."
             self.vehicle_selection(instance)
     end
 
@@ -212,21 +222,22 @@ end
         elsif input == "4"
             self.search_criteria
         elsif input == "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
+            self.vehicle_options(instance)
         end
     end
     end
 
     def starship_options(instance)
-        puts "Please choose from the following options for #{instance.name}:"
-            puts "1. Name"
-            puts "2. Manufacturer"
-            puts "3. Model"
-            puts "4. Crew Count"
-            puts "5. Passenger Capacity"
-            puts "6. Begin a new search."
+        puts "Please enter a number from the following options for #{instance.name}:"
+            puts "1 - Name"
+            puts "2 - Manufacturer"
+            puts "3 - Model"
+            puts "4 - Crew Count"
+            puts "5 - Passenger Capacity"
+            puts "6 - Begin a new search."
             self.starship_selection(instance)
     end
 
@@ -257,20 +268,11 @@ end
         elsif input == "6"
             self.search_criteria
         elsif input == "exit!"
-            abort("Have a great day Master Jedi.")
+            abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
+            self.starship_options(instance)
         end
     end
     end
-
-
-
-
-
-
-    
-
-
-
 end
