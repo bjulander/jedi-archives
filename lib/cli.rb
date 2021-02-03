@@ -39,7 +39,13 @@ end
 
     def search(category)
         input = gets.strip
-        Api.get_info(input, category)
+        new_instance = Api.get_info(input, category)
+        self.category_attributes(new_instance)
+    end
+
+    def category_attributes(instance)
+        puts "Please select from the following options:"
+
     end
 
 end

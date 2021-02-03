@@ -6,5 +6,6 @@ class Species
             hash.each do |key, value|
                 self.send("#{key}=", value)
             end
+            @@all << self
         end
     end

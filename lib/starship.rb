@@ -6,6 +6,6 @@ class Starship
             hash.each do |key, value|
                 self.send("#{key}=", value)
             end
-            binding.pry
+            @@all << self
         end
     end
