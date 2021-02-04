@@ -3,7 +3,6 @@ class Api
 
     def self.get_info(name, category)
         url = "https://swapi.dev/api/#{category}/?search=#{name.split(" ")[0]}"
-        # binding.pry
         response = HTTParty.get(url)
         if response["results"].empty?
                  return false
@@ -26,6 +25,3 @@ class Api
         end
     end
 end 
-
-#error response -  response => {"count"=>0, "next"=>nil, "previous"=>nil, "results"=>[]}
-#normal response - response => {"count"=>1, "next"=>nil, "previous"=>nil, "results"=>[{

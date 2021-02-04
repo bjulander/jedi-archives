@@ -1,11 +1,15 @@
 class Planet
     @@all = []
     
-        attr_accessor :name, :diameter, :terrain, :climate
-        def initialize(hash)
-            hash.each do |key, value|
-                self.send("#{key}=", value)
-            end
-            @@all << self
+    attr_accessor :name, :diameter, :terrain, :climate
+    def initialize(hash)
+        hash.each do |key, value|
+            self.send("#{key}=", value)
         end
+        @@all << self
     end
+
+    def self.all
+        @@all
+    end
+end

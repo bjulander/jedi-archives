@@ -14,6 +14,7 @@ class Cli
         puts "Species"
         puts "Starships"
         puts "Vehicles"
+        puts "Exit"
         input = gets.strip
         case input 
         when "people"
@@ -31,7 +32,7 @@ class Cli
         when "vehicles"
             puts "Please enter a vehicle to begin your search"
             self.search(input)
-        when "exit!"
+        when "exit"
             abort("May the Force be with you Master Jedi.")
         else
            puts "INVALID ENTRY. Please enter one of the following:" 
@@ -52,8 +53,10 @@ end
                 self.species_options(new_instance)
             when "starships"
                 self.starship_options(new_instance)
-            else "vehicles"
+            when "vehicles"
                 self.vehicle_options(new_instance)
+            else "exit"
+                abort("May the Force be with you Master Jedi.")
             end
         else
             puts " "
@@ -70,13 +73,13 @@ end
         puts "3 - Eye Color"
         puts "4 - Height"
         puts "5 - Homeworld"
-        puts "6 - Begin a new search."
+        puts "6 - Begin a new search"
+        puts "7 - Exit the archives"
         self.people_selection(instance)
     end
 
     def people_selection(instance)
         input = " "
-        while input != "exit!"
         input = gets.strip
         if input == "1"
             puts "#{instance.name}"
@@ -98,13 +101,12 @@ end
             self.people_options(instance)
         elsif input == "6"
             self.search_criteria
-        elsif input == "exit!"
+        elsif input == "7"
             abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
             self.people_options(instance)
         end
-    end
     end
 
     def planet_options(instance)
@@ -113,13 +115,13 @@ end
         puts "2 - Diameter"
         puts "3 - Terrain"
         puts "4 - Climate"
-        puts "5 - Begin a new search."
+        puts "5 - Begin a new search"
+        puts "6 - Exit the archives"
         self.planet_selection(instance)
     end
 
     def planet_selection(instance)
         input = " "
-        while input != "exit!"
         input = gets.strip
         if input == "1"
             puts "#{instance.name}"
@@ -139,13 +141,12 @@ end
             self.planet_options(instance)
         elsif input == "5"
             self.search_criteria
-        elsif input == "exit!"
+        elsif input == "6"
             abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
             self.planet_options(instance)
         end
-    end
     end
 
     def species_options(instance)
@@ -155,13 +156,13 @@ end
             puts "3 - Average Height"
             puts "4 - Average Lifespan"
             puts "5 - Language"
-            puts "6 - Begin a new search."
+            puts "6 - Begin a new search"
+            puts "7 - Exit the archives"
             self.species_selection(instance)
     end
 
     def species_selection(instance)
         input = " "
-        while input != "exit!"
         input = gets.strip
         if input == "1"
             puts "#{instance.name}"
@@ -185,13 +186,12 @@ end
             self.species_options(instance)
         elsif input == "6"
             self.search_criteria
-        elsif input == "exit!"
+        elsif input == "7"
             abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
             self.species_options(instance)
         end
-    end
     end
 
     def vehicle_options(instance)
@@ -199,13 +199,13 @@ end
             puts "1 - Name"
             puts "2 - Model"
             puts "3 - Top Speed"
-            puts "4 - Begin a new search."
+            puts "4 - Begin a new search"
+            puts "5 - Exit the archives"
             self.vehicle_selection(instance)
     end
 
     def vehicle_selection(instance)
         input = " "
-        while input != "exit!"
         input = gets.strip
         if input == "1"
             puts "#{instance.name}"
@@ -221,13 +221,12 @@ end
             self.vehicle_options(instance)
         elsif input == "4"
             self.search_criteria
-        elsif input == "exit!"
+        elsif input == "5"
             abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
             self.vehicle_options(instance)
         end
-    end
     end
 
     def starship_options(instance)
@@ -237,13 +236,13 @@ end
             puts "3 - Model"
             puts "4 - Crew Count"
             puts "5 - Passenger Capacity"
-            puts "6 - Begin a new search."
+            puts "6 - Begin a new search"
+            puts "7 - Exit the archives"
             self.starship_selection(instance)
     end
 
     def starship_selection(instance)
         input = " "
-        while input != "exit!"
         input = gets.strip
         if input == "1"
             puts "#{instance.name}"
@@ -267,12 +266,11 @@ end
             self.starship_options(instance)
         elsif input == "6"
             self.search_criteria
-        elsif input == "exit!"
+        elsif input == "7"
             abort("May the Force be with you Master Jedi.")
         else
             puts  "INVALID ENTRY. Please enter a valid option."
             self.starship_options(instance)
         end
-    end
     end
 end
