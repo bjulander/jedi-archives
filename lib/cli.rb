@@ -37,33 +37,48 @@ class Cli
         else
            puts "INVALID ENTRY. Please enter one of the following:" 
         end
+        end
     end
-end
 
     def search(category)
         input = gets.strip
-        new_instance = Api.get_info(input, category)
-        if new_instance 
             case category
             when "people"
-                self.people_options(new_instance)
+                person = People.find(input) || Api.get_info(input, category)
+                if person
+                    self.people_options(person)
+                else
+                    puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+                end
             when "planets"
-                self.planet_options(new_instance)
+                planet = Planet.find(input) || Api.get_info(input, category)
+                if planet
+                    self.planet_options(planet)
+                end
             when "species"
-                self.species_options(new_instance)
+                species = Species.find(input) || Api.get_info(input, category)
+                if species
+                    self.species_options(species)
+                end
             when "starships"
-                self.starship_options(new_instance)
+                starship = Starship.find(input) || Api.get_info(input, category)
+                if starship
+                    self.starship_options(starship)
+                end
             when "vehicles"
-                self.vehicle_options(new_instance)
-            else "exit"
+                vehicle = Vehicle.find(input) || Api.get_info(input, category)
+                if vehicle
+                    self.vehicle_options(vehicle)
+                end
+            else 
+                "exit"
                 abort("May the Force be with you Master Jedi.")
+            # else
+            #     puts " "
+            #     puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+            #     puts " "
+            #      self.search_criteria
             end
-        else
-            puts " "
-            puts "This item is unknown. If an item does not appear in our records, it does not exist!"
-            puts " "
-            self.search_criteria
-        end
     end
 
     def people_options(instance)

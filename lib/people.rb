@@ -12,4 +12,11 @@ class People
     def self.all
         @@all
     end
+
+    def self.find(input)
+        @@all.find do |person|
+            person.name.downcase.include?(input.downcase)
+        end
+    end
+
 end

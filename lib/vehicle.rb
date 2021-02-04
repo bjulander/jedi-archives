@@ -12,4 +12,10 @@ class Vehicle
     def self.all
         @@all
     end
+
+    def self.find(input)
+        @@all.find do |vehicle|
+            vehicle.name.downcase.include?(input.downcase)
+        end
+    end
 end

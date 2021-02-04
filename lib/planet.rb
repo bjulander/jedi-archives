@@ -12,4 +12,10 @@ class Planet
     def self.all
         @@all
     end
+
+    def self.find(input)
+        @@all.find do |planet|
+            planet.name.downcase.include?(input.downcase)
+        end
+    end
 end

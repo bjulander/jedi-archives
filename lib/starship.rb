@@ -12,4 +12,10 @@ class Starship
     def self.all
         @@all
     end
+
+    def self.find(input)
+        @@all.find do |starship|
+            starship.name.downcase.include?(input.downcase)
+        end
+    end
 end

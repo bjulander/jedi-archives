@@ -12,4 +12,10 @@ class Species
     def self.all
         @@all
     end
+
+    def self.find(input)
+        @@all.find do |species|
+            species.name.downcase.include?(input.downcase)
+        end
+    end
 end

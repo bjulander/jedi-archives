@@ -10,7 +10,7 @@ This program was written in the Ruby language and uses several gems. The Install
     
 Copy the code of this repo.
 
-In your terminal:
+In your terminal paste:
 
     gh repo clone bjulander/jedi-archives
 
