@@ -2,9 +2,7 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# gem "rails"
+git_source(:github)"https://github.com/bjulander/jedi-archives"
 
 gem 'pry'
 gem 'httparty'
