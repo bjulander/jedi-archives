@@ -5,10 +5,10 @@ class Api
         url = "https://swapi.dev/api/#{category}/?search=#{name.split(" ")[0]}"
         # binding.pry
         response = HTTParty.get(url)
+        if response["results"].empty?
+                 return false
+              end
         if url.include?("people")
-            if response["count"][0]
-                return false
-            end
             people_hash = {name: response["results"][0]["name"], birth_year: response["results"][0]["birth_year"], height: response["results"][0]["height"], homeworld: response["results"][0]["homeworld"], eye_color: response["results"][0]["eye_color"]}
             People.new(people_hash)
         elsif url.include?("planets")
@@ -20,13 +20,12 @@ class Api
         elsif url.include?("starships")
             starship_hash = {name: response["results"][0]["name"], model: response["results"][0]["model"], manufacturer: response["results"][0]["manufacturer"], crew: response["results"][0]["crew"], passengers: response["results"][0]["passengers"]}
             Starship.new(starship_hash)
-        elsif url.include?("vehicles")
+        else url.include?("vehicles")
             vehicle_hash = {name: response["results"][0]["name"], model: response["results"][0]["model"], speed: response["results"][0]["max_atmosphering_speed"], }
             Vehicle.new(vehicle_hash)
-        else !url.include?("vehicles", "people", "planets", "species", "starships")
-            puts "nil"
         end
     end
 end 
 
 #error response -  response => {"count"=>0, "next"=>nil, "previous"=>nil, "results"=>[]}
+#normal response - response => {"count"=>1, "next"=>nil, "previous"=>nil, "results"=>[{
