@@ -1,7 +1,7 @@
 class People
 @@all = []
 
-    attr_accessor :name, :birth_year, :eye_color, :height, #:homeworld
+    attr_accessor :name, :birth_year, :eye_color, :height, :homeworld
     def initialize(hash)
         hash.each do |key, value|
             self.send("#{key}=", value)
@@ -19,4 +19,5 @@ class People
         end
     end
 
+    
 end

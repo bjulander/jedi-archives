@@ -41,42 +41,43 @@ class Cli
     end
 
     def search(category)
+        input = " "
         input = gets.strip
             case category
             when "people"
                 object = People.find(input) || Api.get_info(input, category)
                 if object
-                    self.people_options(person)
+                    self.people_options(object)
                 end
             when "planets"
                 object = Planet.find(input) || Api.get_info(input, category)
                 if object
-                    self.planet_options(planet)
+                    self.planet_options(object)
                 end
             when "species"
                 object = Species.find(input) || Api.get_info(input, category)
                 if object
-                    self.species_options(species)
+                    self.species_options(object)
                 end
             when "starships"
                 object = Starship.find(input) || Api.get_info(input, category)
                 if object
-                    self.starship_options(starship)
+                    self.starship_options(object)
                 end
             when "vehicles"
                 object = Vehicle.find(input) || Api.get_info(input, category)
                 if object
-                    self.vehicle_options(vehicle)
+                    self.vehicle_options(object)
                 end
             else 
                 "exit"
                 abort("May the Force be with you Master Jedi.")
             end
-             if !object 
-                 puts " "
-                    puts "This item is unknown. If an item does not appear in our records, it does not exist!"
-                 puts " "
-             end
+            if !object 
+                puts " "
+                puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+                puts " "
+            end
 
     end
 
@@ -86,7 +87,7 @@ class Cli
         puts "2 - Birth Year"
         puts "3 - Eye Color"
         puts "4 - Height"
-        # puts "5 - Homeworld"
+        puts "5 - Homeworld"
         puts "6 - Begin a new search"
         puts "7 - Exit the archives"
         self.people_selection(instance)
@@ -111,8 +112,8 @@ class Cli
             puts "#{instance.name} is #{instance.height} centimeters tall."
             puts " "
             self.people_options(instance)
-        # elsif input == "5" 
-        #     self.people_options(instance)
+         elsif input == "5" 
+            self.people_options(instance)
         elsif input == "6"
             self.search_criteria
         elsif input == "7"
