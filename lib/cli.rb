@@ -44,41 +44,40 @@ class Cli
         input = gets.strip
             case category
             when "people"
-                person = People.find(input) || Api.get_info(input, category)
-                if person
+                object = People.find(input) || Api.get_info(input, category)
+                if object
                     self.people_options(person)
-                else
-                    puts "This item is unknown. If an item does not appear in our records, it does not exist!"
                 end
             when "planets"
-                planet = Planet.find(input) || Api.get_info(input, category)
-                if planet
+                object = Planet.find(input) || Api.get_info(input, category)
+                if object
                     self.planet_options(planet)
                 end
             when "species"
-                species = Species.find(input) || Api.get_info(input, category)
-                if species
+                object = Species.find(input) || Api.get_info(input, category)
+                if object
                     self.species_options(species)
                 end
             when "starships"
-                starship = Starship.find(input) || Api.get_info(input, category)
-                if starship
+                object = Starship.find(input) || Api.get_info(input, category)
+                if object
                     self.starship_options(starship)
                 end
             when "vehicles"
-                vehicle = Vehicle.find(input) || Api.get_info(input, category)
-                if vehicle
+                object = Vehicle.find(input) || Api.get_info(input, category)
+                if object
                     self.vehicle_options(vehicle)
                 end
             else 
                 "exit"
                 abort("May the Force be with you Master Jedi.")
-            # else
-            #     puts " "
-            #     puts "This item is unknown. If an item does not appear in our records, it does not exist!"
-            #     puts " "
-            #      self.search_criteria
             end
+             if !object 
+                 puts " "
+                    puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+                 puts " "
+             end
+
     end
 
     def people_options(instance)
@@ -87,7 +86,7 @@ class Cli
         puts "2 - Birth Year"
         puts "3 - Eye Color"
         puts "4 - Height"
-        puts "5 - Homeworld"
+        # puts "5 - Homeworld"
         puts "6 - Begin a new search"
         puts "7 - Exit the archives"
         self.people_selection(instance)
@@ -112,8 +111,8 @@ class Cli
             puts "#{instance.name} is #{instance.height} centimeters tall."
             puts " "
             self.people_options(instance)
-        elsif input == "5" 
-            self.people_options(instance)
+        # elsif input == "5" 
+        #     self.people_options(instance)
         elsif input == "6"
             self.search_criteria
         elsif input == "7"
