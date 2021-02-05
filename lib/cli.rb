@@ -1,8 +1,8 @@
 class Cli
 
     def welcome
-        puts "Welcome Master Jedi." 
-        puts "To begin your search, please enter one of the following:"
+        puts "Welcome Master Jedi.".green 
+        puts "To begin your search, please enter one of the following:".green
         search_criteria
     end
 
@@ -33,9 +33,9 @@ class Cli
             puts "Please enter a vehicle to begin your search"
             self.search(input)
         when "exit"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-           puts "INVALID ENTRY. Please enter one of the following:" 
+           puts "INVALID ENTRY. Please enter one of the following:".yellow
         end
         end
     end
@@ -71,11 +71,11 @@ class Cli
                 end
             else 
                 "exit"
-                abort("May the Force be with you Master Jedi.")
+                abort("May the Force be with you Master Jedi.".green)
             end
             if !object 
                 puts " "
-                puts "This item is unknown. If an item does not appear in our records, it does not exist!"
+                puts "This item is unknown. If an item does not appear in our records, it does not exist!".yellow
                 puts " "
             end
 
@@ -117,9 +117,9 @@ class Cli
         elsif input == "6"
             self.search_criteria
         elsif input == "7"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-            puts  "INVALID ENTRY. Please enter a valid option."
+            puts  "INVALID ENTRY. Please enter a valid option.".yellow
             self.people_options(instance)
         end
     end
@@ -157,9 +157,9 @@ class Cli
         elsif input == "5"
             self.search_criteria
         elsif input == "6"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-            puts  "INVALID ENTRY. Please enter a valid option."
+            puts  "INVALID ENTRY. Please enter a valid option.".yellow
             self.planet_options(instance)
         end
     end
@@ -202,9 +202,9 @@ class Cli
         elsif input == "6"
             self.search_criteria
         elsif input == "7"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-            puts  "INVALID ENTRY. Please enter a valid option."
+            puts  "INVALID ENTRY. Please enter a valid option.".yellow
             self.species_options(instance)
         end
     end
@@ -237,9 +237,9 @@ class Cli
         elsif input == "4"
             self.search_criteria
         elsif input == "5"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-            puts  "INVALID ENTRY. Please enter a valid option."
+            puts  "INVALID ENTRY. Please enter a valid option.".yellow
             self.vehicle_options(instance)
         end
     end
@@ -282,9 +282,9 @@ class Cli
         elsif input == "6"
             self.search_criteria
         elsif input == "7"
-            abort("May the Force be with you Master Jedi.")
+            abort("May the Force be with you Master Jedi.".green)
         else
-            puts  "INVALID ENTRY. Please enter a valid option."
+            puts  "INVALID ENTRY. Please enter a valid option.".yellow
             self.starship_options(instance)
         end
     end
