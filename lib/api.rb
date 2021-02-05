@@ -8,7 +8,7 @@ class Api
                  return false
               end
         if url.include?("people")
-            people_hash = {name: response["results"][0]["name"], birth_year: response["results"][0]["birth_year"], height: response["results"][0]["height"], homeworld: response["results"][0]["homeworld"], eye_color: response["results"][0]["eye_color"]}
+            people_hash = {name: response["results"][0]["name"], birth_year: response["results"][0]["birth_year"], height: response["results"][0]["height"], eye_color: response["results"][0]["eye_color"]}
             People.new(people_hash)
         elsif url.include?("planets")
             planets_hash = {name: response["results"][0]["name"], terrain: response["results"][0]["terrain"], climate: response["results"][0]["climate"], diameter: response["results"][0]["diameter"]}

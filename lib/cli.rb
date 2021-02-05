@@ -87,9 +87,8 @@ class Cli
         puts "2 - Birth Year"
         puts "3 - Eye Color"
         puts "4 - Height"
-        puts "5 - Homeworld"
-        puts "6 - Begin a new search"
-        puts "7 - Exit the archives"
+        puts "5 - Begin a new search"
+        puts "6 - Exit the archives"
         self.people_selection(instance)
     end
 
@@ -112,11 +111,9 @@ class Cli
             puts "#{instance.name} is #{instance.height} centimeters tall."
             puts " "
             self.people_options(instance)
-         elsif input == "5" 
-            self.people_options(instance)
-        elsif input == "6"
+        elsif input == "5"
             self.search_criteria
-        elsif input == "7"
+        elsif input == "6"
             abort("May the Force be with you Master Jedi.".green)
         else
             puts  "INVALID ENTRY. Please enter a valid option.".yellow
