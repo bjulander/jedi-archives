@@ -18,19 +18,19 @@ class Cli
         input = gets.strip
         case input 
         when "people"
-            puts "Please enter a name to begin your search"
+            puts "Please enter a name to begin your search".green
             self.search(input)
         when "planets"
-            puts "Please enter a planet to begin your search"
+            puts "Please enter a planet to begin your search".green
             self.search(input)
         when "species"
-            puts "Please enter a species to begin your search"
+            puts "Please enter a species to begin your search".green
             self.search(input)
         when "starships"
-            puts "Please enter a starship to begin your search"
+            puts "Please enter a starship to begin your search".green
             self.search(input)
         when "vehicles"
-            puts "Please enter a vehicle to begin your search"
+            puts "Please enter a vehicle to begin your search".green
             self.search(input)
         when "exit"
             abort("May the Force be with you Master Jedi.".green)
@@ -82,7 +82,7 @@ class Cli
     end
 
     def people_options(instance)
-        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "Please enter a number from the following options for #{instance.name}:".green
         puts "1 - Full Name"
         puts "2 - Birth Year"
         puts "3 - Eye Color"
@@ -122,7 +122,7 @@ class Cli
     end
 
     def planet_options(instance)
-        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "Please enter a number from the following options for #{instance.name}:".green
         puts "1 - Planet Name"
         puts "2 - Diameter"
         puts "3 - Terrain"
@@ -162,7 +162,7 @@ class Cli
     end
 
     def species_options(instance)
-        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "Please enter a number from the following options for #{instance.name}:".green
             puts "1 - Name"
             puts "2 - Classification"
             puts "3 - Average Height"
@@ -207,7 +207,7 @@ class Cli
     end
 
     def vehicle_options(instance)
-        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "Please enter a number from the following options for #{instance.name}:".green
             puts "1 - Name"
             puts "2 - Model"
             puts "3 - Top Speed"
@@ -242,7 +242,7 @@ class Cli
     end
 
     def starship_options(instance)
-        puts "Please enter a number from the following options for #{instance.name}:"
+        puts "Please enter a number from the following options for #{instance.name}:".green
             puts "1 - Name"
             puts "2 - Manufacturer"
             puts "3 - Model"
